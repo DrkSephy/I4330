@@ -9,6 +9,7 @@ language = {
 	'f': 'fuf',
 	'g': 'gug',
 	'h': 'hash',
+	'i': 'i',
 	'j': 'jug',
 	'k': 'kuck',
 	'l': 'lul',
@@ -81,7 +82,7 @@ def encode(phrase):
 				prevLetter = word[i - 1]
 			# Handle double character case
 			if currLetter == nextLetter:
-				currWord = 'squa'
+				currWord += 'squa'
 			# Previous character case
 			# Now we insert the repeated character
 			elif currLetter == prevLetter:
@@ -101,4 +102,4 @@ def encode(phrase):
 	return final_str
 	"""
 
-print encode('hello world')
+print encode('Over hill, over dale, Thorough bush, thorough brier, Over park, over pale, Thorough flood, thorough fire!')
