@@ -28,6 +28,30 @@ language = {
 	'z': 'zug'
 }
 
+doubleLanguage = {
+	'bb': 'squab',
+	'cc': 'squac',
+	'dd': 'squad',
+	'ff': 'squaf',
+	'gg': 'squag',
+	'hh': 'squah',
+	'jj': 'squaj',
+	'kk': 'squak',
+	'll': 'squal',
+	'mm': 'squam',
+	'nn': 'squan',
+	'pp': 'squap',
+	'qq': 'squaq',
+	'rr': 'squar',
+	'ss': 'squas',
+	'tt': 'squat',
+	'vv': 'squav',
+	'ww': 'squaw',
+	'xx': 'squax',
+	'yy': 'squay',
+	'zz': 'squaz',
+}
+
 # Get all keys from language dictionary
 languageKeys = language.keys()
 
@@ -38,11 +62,11 @@ languageReversed = dict (zip(language.values(), language.keys()))
 languageReversedKeys = languageReversed.keys()
 
 def encode(phrase):
+
 	final_str = ''
-	for char in phrase:
-		# print languageReversed[char]
-		pattern = re.compile(char)
-		final_str += re.sub(pattern, language[char], char)
+	for item in phrase: 
+		pattern = re.compile(item)
+		final_str += re.sub(pattern, language[item], item)
 	return final_str
 
-print encode('hello')
+print encode('hello world')
