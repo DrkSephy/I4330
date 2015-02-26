@@ -62,11 +62,43 @@ languageReversed = dict (zip(language.values(), language.keys()))
 languageReversedKeys = languageReversed.keys()
 
 def encode(phrase):
+	lowerPhrase = phrase.lower()
+	words = lowerPhrase.split()
+	print words
+	translation = []
+	for word in words:
+		currWord = ''
+		for i in range(len(word)):
+			# Store current letter
+			currLetter = word[i]
+			nextLetter = ''
+			prevLetter = ''
+			# Get the next letter
+			if i < len(word) - 1:
+				nextLetter = word[i + 1]
+			# Get the previous letter if possible
+			if i > 0:
+				prevLetter = word[i - 1]
+			# Handle double character case
+			if currLetter == nextLetter:
+				currWord = 'squa'
+			# Previous character case
+			# Now we insert the repeated character
+			elif currLetter == prevLetter:
+				currWord += currLetter
+			elif currLetter in language.keys():
+				currWord += language[currLetter]
+			else:
+				currWord += currLetter
+		translation.append(currWord)
+	return ' '.join(translation)
 
+	"""
 	final_str = ''
 	for item in phrase: 
 		pattern = re.compile(item)
 		final_str += re.sub(pattern, language[item], item)
 	return final_str
+	"""
 
 print encode('hello world')
