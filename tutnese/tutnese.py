@@ -7,27 +7,22 @@
 import re
 
 language = {
-	'a': 'a',
 	'b': 'bub',
 	'c': 'coch',
 	'd': 'dud',
-	'e': 'e',
 	'f': 'fuf',
 	'g': 'gug',
 	'h': 'hash',
-	'i': 'i',
 	'j': 'jug',
 	'k': 'kuck',
 	'l': 'lul',
 	'm': 'mum',
-	'n': 'nun',
-	'o': 'o', 
+	'n': 'nun', 
 	'p': 'pup',
 	'q': 'quack',
 	'r': 'rur',
 	's': 'sus',
 	't': 'tut',
-	'u': 'u',
 	'v': 'vuv',
 	'w': 'wack',
 	'x': 'xux',
@@ -59,6 +54,7 @@ doubleLanguage = {
 	'zz': 'squaz',
 }
 
+vowels = ['a', 'o', 'e', 'i', 'u']
 # Get all keys from language dictionary
 languageKeys = language.keys()
 
@@ -71,7 +67,7 @@ languageReversedKeys = languageReversed.keys()
 def encode(phrase):
 	lowerPhrase = phrase.lower()
 	words = lowerPhrase.split()
-	print words
+	# print words
 	translation = []
 	for word in words:
 		currWord = ''
@@ -87,7 +83,7 @@ def encode(phrase):
 			if i > 0:
 				prevLetter = word[i - 1]
 			# Handle double character case
-			if currLetter == nextLetter:
+			if currLetter == nextLetter and currLetter not in vowels:
 				currWord += 'squa'
 			# Previous character case
 			# Now we insert the repeated character
@@ -100,4 +96,4 @@ def encode(phrase):
 		translation.append(currWord)
 	return ' '.join(translation)
 
-print encode('Over hill, over dale, Thorough bush, thorough brier, Over park, over pale, Thorough flood, thorough fire!')
+# print encode('Over hill, over dale, Thorough bush, thorough brier, Over park, over pale, Thorough flood, thorough fire!')
