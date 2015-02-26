@@ -1,3 +1,9 @@
+############################
+# David Leonard 		   #
+# tutnese.py    		   #
+# *~-drksephy.github.io*~- #
+############################
+
 import re
 
 language = {
@@ -93,13 +99,5 @@ def encode(phrase):
 				currWord += currLetter
 		translation.append(currWord)
 	return ' '.join(translation)
-
-	"""
-	final_str = ''
-	for item in phrase: 
-		pattern = re.compile(item)
-		final_str += re.sub(pattern, language[item], item)
-	return final_str
-	"""
 
 print encode('Over hill, over dale, Thorough bush, thorough brier, Over park, over pale, Thorough flood, thorough fire!')
